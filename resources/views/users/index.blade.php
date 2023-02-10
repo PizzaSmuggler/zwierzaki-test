@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="container">
     <table class="table table-hover">
@@ -19,11 +18,31 @@
             <td>{{$user->email}}</td>
             <td>{{$user->name}}</td>
             <td>{{$user->phone}}</td>
-            <td></td>
+            <td>
+                <button class="btn btn-danger btn-sm delete" data-id="{{$user->id}}"> X </button>
+            </td>
         </tr>
         @endforeach
         </tbody>
     </table>
         {{$users->links()}}
     </div>
+@endsection
+@section('Javascript')
+    $(function(){
+        $('.delete').click(function(){
+            $.ajax({
+                method: "DELETE",
+                url: "http://zwierzaki.test/users/" + $(this).data("id")
+                // data: { id: $(this).data({id} }
+            })
+            .done(function (response) {
+                window.location.reload();
+                alert( "USER DELETED");
+            })
+            .fail(function (response) {
+                alert( "ERROR");
+            })
+        });
+    });
 @endsection
