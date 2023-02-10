@@ -29,20 +29,6 @@
     </div>
 @endsection
 @section('Javascript')
-    $(function(){
-        $('.delete').click(function(){
-            $.ajax({
-                method: "DELETE",
-                url: "http://zwierzaki.test/users/" + $(this).data("id")
-                // data: { id: $(this).data({id} }
-            })
-            .done(function (response) {
-                window.location.reload();
-                alert( "USER DELETED");
-            })
-            .fail(function (response) {
-                alert( "ERROR");
-            })
-        });
-    });
+    @vite(['resources/js/delete.js'])
 @endsection
+

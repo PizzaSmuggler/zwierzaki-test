@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get( '/users/list', [\App\Http\Controllers\UserController::class, 'index'])->middleware('auth');
-Route::delete('/users/{id}',[\App\Http\Controllers\UserController::class, 'destroy'])->middleware('auth');
+Route::delete('/users/{user}',[\App\Http\Controllers\UserController::class, 'destroy'])->middleware('auth');
 
 Auth::routes();
 
