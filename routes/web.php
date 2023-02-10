@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get( '/adverts', [\App\Http\Controllers\AdvertController::class, 'index'])->name('adverts.index')->middleware('auth');
+Route::get( '/adverts/create', [\App\Http\Controllers\AdvertController::class, 'create'])->name('adverts.create')->middleware('auth');
+Route::post( '/adverts', [\App\Http\Controllers\AdvertController::class, 'store'])->name('adverts.store')->middleware('auth');
 
 Route::get( '/users/list', [\App\Http\Controllers\UserController::class, 'index'])->middleware('auth');
 Route::delete('/users/{user}',[\App\Http\Controllers\UserController::class, 'destroy'])->middleware('auth');
