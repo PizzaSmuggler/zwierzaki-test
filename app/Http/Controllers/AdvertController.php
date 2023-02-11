@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Advert;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class AdvertController extends Controller
 {
@@ -24,7 +26,7 @@ class AdvertController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -47,8 +49,8 @@ class AdvertController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Advert  $advert
-     * @return \Illuminate\Http\Response
+     * @param Advert $advert
+     * @return Response
      */
     public function show(Advert $advert)
     {
@@ -58,34 +60,48 @@ class AdvertController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Advert  $advert
-     * @return \Illuminate\Http\Response
+     * @param Advert $advert
+     * @return View
      */
-    public function edit(Advert $advert)
+    public function edit(Advert $advert): View
     {
-        //
+        return view('adverts.edit', [
+            'advert' => $advert
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Advert  $advert
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Advert $advert
+     * @return RedirectResponse
      */
-    public function update(Request $request, Advert $advert)
+    public function update(Request $request, Advert $advert): RedirectResponse
     {
-        //
+        $advert->fill($request->all());
+        $advert->save();
+        return redirect(route('adverts.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Advert  $advert
-     * @return \Illuminate\Http\Response
+     * @param Advert $advert
+     * @return JsonResponse
      */
-    public function destroy(Advert $advert)
+    public function destroy(Advert $advert): JsonResponse
     {
-        //
+        try {
+            $advert->delete();
+            return response()->json([
+                'status' => 'success'
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Wystąpił błąd'
+            ])->setStatusCode(500);
+        }
     }
 }

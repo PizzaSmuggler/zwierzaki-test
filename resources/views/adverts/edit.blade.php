@@ -5,16 +5,16 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Dodawanie ogłoszenia</div>
+                    <div class="card-header">Edycja ogłoszenia</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('adverts.store') }}">
+                        <form method="POST" action="{{ route('adverts.update',$advert->id) }}">
                             @csrf
                             <div class="row mb-3">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">Nazwa</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" maxlength="500" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="name" type="text" maxlength="500" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $advert->name }}" required autocomplete="name" autofocus>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
                                 <label for="description" class="col-md-4 col-form-label text-md-end">Opis</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="description" maxlength="1500" class="form-control @error('description') is-invalid @enderror" name="description" autofocus>{{old('description')}}</textarea>
+                                    <textarea id="description" maxlength="1500" class="form-control @error('description') is-invalid @enderror" name="description" autofocus>{{$advert->description}}</textarea>
 
                                     @error('description')
                                     <span class="invalid-feedback" role="alert">
@@ -62,7 +62,7 @@
                                 <label for="age" class="col-md-4 col-form-label text-md-end">Wiek</label>
 
                                 <div class="col-md-6">
-                                    <input id="age" type="number" max="99" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="name" autofocus>
+                                    <input id="age" type="number" max="99" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ $advert->age }}" required autocomplete="name" autofocus>
 
                                     @error('age')
                                     <span class="invalid-feedback" role="alert">
@@ -113,7 +113,7 @@
                             <div class="row mb-3">
                                 <label for="weight" class="col-md-4 col-form-label text-md-end">Waga (kg)</label>
                                 <div class="col-md-6">
-                                    <input id="weight" type="number" max="100" class="form-control @error('weight') is-invalid @enderror" name="weight" value="{{ old('weight') }}" required autofocus>
+                                    <input id="weight" type="number" max="100" class="form-control @error('weight') is-invalid @enderror" name="weight" value="{{ $advert->weight }}" required>
 
                                     @error('weight')
                                     <span class="invalid-feedback" role="alert">
@@ -127,7 +127,7 @@
                                 <label for="height" class="col-md-4 col-form-label text-md-end">Wysokość (cm)</label>
 
                                 <div class="col-md-6">
-                                    <input id="height" type="number" max="200" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ old('height') }}" required autofocus>
+                                    <input id="height" type="number" max="200" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ $advert->height }}" required>
 
                                     @error('height')
                                     <span class="invalid-feedback" role="alert">
@@ -140,7 +140,7 @@
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Dodaj
+                                        Edytuj
                                     </button>
                                 </div>
                             </div>

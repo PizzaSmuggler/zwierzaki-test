@@ -40,6 +40,9 @@
                     <td>{{$advert->weight}}</td>
                     <td>{{$advert->height}}</td>
                     <td>
+                        <a href="{{route('adverts.edit',$advert->id)}}">
+                            <button class="btn btn-success btn-sm"> E </button>
+                        </a>
                         <button class="btn btn-danger btn-sm delete" data-id="{{$advert->id}}"> X </button>
                     </td>
                 </tr>
@@ -51,6 +54,6 @@
     </div>
 @endsection
 @section('Javascript')
-    @vite(['resources/js/delete.js'])
+    @vite(['resources/js/deleteAd.js'])
 @endsection
 
