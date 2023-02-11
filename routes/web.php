@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdvertController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,20 +15,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get( '/', [WelcomeController::class, 'index']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get( '/adverts', [\App\Http\Controllers\AdvertController::class, 'index'])->name('adverts.index')->middleware('auth');
-Route::get( '/adverts/create', [\App\Http\Controllers\AdvertController::class, 'create'])->name('adverts.create')->middleware('auth');
-Route::get( '/adverts/{advert}', [\App\Http\Controllers\AdvertController::class, 'show'])->name('adverts.show')->middleware('auth');
-Route::post( '/adverts', [\App\Http\Controllers\AdvertController::class, 'store'])->name('adverts.store')->middleware('auth');
-Route::get( '/adverts/edit/{advert}', [\App\Http\Controllers\AdvertController::class, 'edit'])->name('adverts.edit')->middleware('auth');
-Route::post( '/adverts/{advert}', [\App\Http\Controllers\AdvertController::class, 'update'])->name('adverts.update')->middleware('auth');
-Route::delete('/adverts/{advert}',[\App\Http\Controllers\AdvertController::class, 'destroy'])->name('adverts.destroy')->middleware('auth');
+Route::get( '/adverts', [AdvertController::class, 'index'])->name('adverts.index')->middleware('auth');
+Route::get( '/adverts/create', [AdvertController::class, 'create'])->name('adverts.create')->middleware('auth');
+Route::get( '/adverts/{advert}', [AdvertController::class, 'show'])->name('adverts.show')->middleware('auth');
+Route::post( '/adverts', [AdvertController::class, 'store'])->name('adverts.store')->middleware('auth');
+Route::get( '/adverts/edit/{advert}', [AdvertController::class, 'edit'])->name('adverts.edit')->middleware('auth');
+Route::post( '/adverts/{advert}', [AdvertController::class, 'update'])->name('adverts.update')->middleware('auth');
+Route::delete('/adverts/{advert}',[AdvertController::class, 'destroy'])->name('adverts.destroy')->middleware('auth');
 
-Route::get( '/users/list', [\App\Http\Controllers\UserController::class, 'index'])->middleware('auth');
-Route::delete('/users/{user}',[\App\Http\Controllers\UserController::class, 'destroy'])->middleware('auth');
+Route::get( '/users/list', [UserController::class, 'index'])->middleware('auth');
+Route::delete('/users/{user}',[UserController::class, 'destroy'])->middleware('auth');
 
 Auth::routes();
 

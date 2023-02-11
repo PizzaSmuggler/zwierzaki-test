@@ -14,9 +14,9 @@ class Advert extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'image_path',
         'name',
         'description',
-        'photo',
         'gender',
         'age',
         'vaccinated',

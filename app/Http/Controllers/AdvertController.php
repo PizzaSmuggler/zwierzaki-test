@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class AdvertController extends Controller
 {
@@ -42,6 +43,9 @@ class AdvertController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $advert = new Advert($request->all());
+        if($request->hasFile('image')){
+            $advert->image_path = Storage::disk('public')->putFile('adverts', $request->file('image'));
+        }
         $advert->save();
         return redirect(route('adverts.index'));
     }
@@ -82,6 +86,9 @@ class AdvertController extends Controller
     public function update(Request $request, Advert $advert): RedirectResponse
     {
         $advert->fill($request->all());
+        if($request->hasFile('image')){
+            $advert->image_path = Storage::disk('public')->putFile('adverts', $request->file('image'));
+        }
         $advert->save();
         return redirect(route('adverts.index'));
     }

@@ -8,7 +8,7 @@
                     <div class="card-header">Dodawanie ogłoszenia</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('adverts.store') }}">
+                        <form method="POST" action="{{ route('adverts.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">Nazwa</label>
@@ -43,7 +43,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="sir" value="Męska">
+                                        <input class="form-check-input" type="radio" name="gender" id="sir" value="Męska" checked>
                                         <label class="form-check-label" for="sir">Męska</label>
                                     </div>
                                     <div class="form-check form-check-inline">
@@ -76,7 +76,7 @@
                                 <label for="vaccinated" class="col-md-4 col-form-label text-md-end">{{ __('Szczepiony') }}</label>
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="vaccinated" id="yes" value="Tak">
+                                        <input class="form-check-input" type="radio" name="vaccinated" id="yes" value="Tak" checked>
                                         <label class="form-check-label" for="yes">Tak</label>
                                     </div>
                                     <div class="form-check form-check-inline">
@@ -95,7 +95,7 @@
                                 <label for="sterilized" class="col-md-4 col-form-label text-md-end">{{ __('Sterylizowany') }}</label>
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="sterilized" id="yes" value="Tak">
+                                        <input class="form-check-input" type="radio" name="sterilized" id="yes" value="Tak" checked>
                                         <label class="form-check-label" for="yes">Tak</label>
                                     </div>
                                     <div class="form-check form-check-inline">
@@ -130,6 +130,20 @@
                                     <input id="height" type="number" max="200" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ old('height') }}" required autofocus>
 
                                     @error('height')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="image" class="col-md-4 col-form-label text-md-end">Grafika</label>
+
+                                <div class="col-md-6">
+                                    <input id="image" type="file"  class="form-control @error('image') is-invalid @enderror" name="image" required >
+
+                                    @error('image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

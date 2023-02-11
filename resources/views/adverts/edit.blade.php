@@ -8,7 +8,7 @@
                     <div class="card-header">Edycja ogłoszenia</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('adverts.update',$advert->id) }}">
+                        <form method="POST" action="{{ route('adverts.update',$advert->id) }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">Nazwa</label>
@@ -134,6 +134,26 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="image" class="col-md-4 col-form-label text-md-end">Grafika</label>
+
+                                <div class="col-md-6">
+                                    <input id="image" type="file"  class="form-control @error('image') is-invalid @enderror" name="image">
+
+                                    @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mb-3 form-control ">
+                                <div class="col-md-6">
+                                    <img src="{{asset('storage/' . $advert->image_path)}}" alt="Zdjęcie ogłoszenia" flex>
                                 </div>
                             </div>
 
