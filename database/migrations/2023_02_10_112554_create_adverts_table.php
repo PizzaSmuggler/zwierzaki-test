@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->binary('gender');
+            $table->string('gender');
             $table->integer('age');
-            $table->binary('vaccinated');
-            $table->binary('sterilized');
+            $table->string('vaccinated');
+            $table->string('sterilized');
             $table->integer('weight');
             $table->integer('height');
             $table->timestamps();

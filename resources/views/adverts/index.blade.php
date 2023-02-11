@@ -40,6 +40,9 @@
                     <td>{{$advert->weight}}</td>
                     <td>{{$advert->height}}</td>
                     <td>
+                        <a href="{{route('adverts.show',$advert->id)}}">
+                            <button class="btn btn-primary btn-sm"> P </button>
+                        </a>
                         <a href="{{route('adverts.edit',$advert->id)}}">
                             <button class="btn btn-success btn-sm"> E </button>
                         </a>

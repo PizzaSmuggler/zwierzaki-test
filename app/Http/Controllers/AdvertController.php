@@ -50,11 +50,13 @@ class AdvertController extends Controller
      * Display the specified resource.
      *
      * @param Advert $advert
-     * @return Response
+     * @return View
      */
-    public function show(Advert $advert)
+    public function show(Advert $advert): View
     {
-        //
+        return view('adverts.show', [
+        'advert' => $advert
+    ]);
     }
 
     /**

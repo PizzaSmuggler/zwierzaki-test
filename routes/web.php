@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 Route::get( '/adverts', [\App\Http\Controllers\AdvertController::class, 'index'])->name('adverts.index')->middleware('auth');
 Route::get( '/adverts/create', [\App\Http\Controllers\AdvertController::class, 'create'])->name('adverts.create')->middleware('auth');
+Route::get( '/adverts/{advert}', [\App\Http\Controllers\AdvertController::class, 'show'])->name('adverts.show')->middleware('auth');
 Route::post( '/adverts', [\App\Http\Controllers\AdvertController::class, 'store'])->name('adverts.store')->middleware('auth');
 Route::get( '/adverts/edit/{advert}', [\App\Http\Controllers\AdvertController::class, 'edit'])->name('adverts.edit')->middleware('auth');
 Route::post( '/adverts/{advert}', [\App\Http\Controllers\AdvertController::class, 'update'])->name('adverts.update')->middleware('auth');
