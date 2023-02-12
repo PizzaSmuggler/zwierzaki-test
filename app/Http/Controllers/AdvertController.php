@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ManageAdvertRequest;
+use App\Http\Requests\StoreAdvertRequest;
 use App\Models\Advert;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -37,12 +39,12 @@ class AdvertController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  ManageAdvertRequest  $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(ManageAdvertRequest $request): RedirectResponse
     {
-        $advert = new Advert($request->all());
+        $advert = new Advert($request->validated());
         if($request->hasFile('image')){
             $advert->image_path = Storage::disk('public')->putFile('adverts', $request->file('image'));
         }
@@ -79,13 +81,13 @@ class AdvertController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param ManageAdvertRequest $request
      * @param Advert $advert
      * @return RedirectResponse
      */
-    public function update(Request $request, Advert $advert): RedirectResponse
+    public function update(ManageAdvertRequest $request, Advert $advert): RedirectResponse
     {
-        $advert->fill($request->all());
+        $advert->fill($request->validated());
         if($request->hasFile('image')){
             $advert->image_path = Storage::disk('public')->putFile('adverts', $request->file('image'));
         }
