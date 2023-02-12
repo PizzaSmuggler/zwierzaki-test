@@ -22,6 +22,11 @@ class Advert extends Model
         'vaccinated',
         'sterilized',
         'weight',
-        'height'
+        'height',
+        'breed_id'
     ];
+    public function breed(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Breed::class);
+    }
 }
