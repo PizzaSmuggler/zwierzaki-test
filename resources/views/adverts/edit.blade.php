@@ -5,13 +5,13 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Edycja ogłoszenia</div>
+                    <div class="card-header">{{__('advert.advert.edit_title',['name'=>$advert->name])}}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('adverts.update',$advert->id) }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">Nazwa</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.name')}}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" maxlength="500" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $advert->name }}" required autocomplete="name" autofocus>
@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="description" class="col-md-4 col-form-label text-md-end">Opis</label>
+                                <label for="description" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.description')}}</label>
 
                                 <div class="col-md-6">
                                     <textarea id="description" maxlength="1500" class="form-control @error('description') is-invalid @enderror" name="description" autofocus>{{$advert->description}}</textarea>
@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="gender" class="col-md-4 col-form-label text-md-end">{{ __('Płeć') }}</label>
+                                <label for="gender" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.gender')}}</label>
 
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
@@ -59,7 +59,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="age" class="col-md-4 col-form-label text-md-end">Wiek</label>
+                                <label for="age" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.age')}}</label>
 
                                 <div class="col-md-6">
                                     <input id="age" type="number" max="99" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ $advert->age }}" required autocomplete="name" autofocus>
@@ -73,7 +73,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="vaccinated" class="col-md-4 col-form-label text-md-end">{{ __('Szczepiony') }}</label>
+                                <label for="vaccinated" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.vaccinated')}}</label>
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="vaccinated" id="yes" value="Tak" <?php echo ($advert->vaccinated=='Tak')?'checked':'' ?>>
@@ -92,7 +92,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="sterilized" class="col-md-4 col-form-label text-md-end">{{ __('Sterylizowany') }}</label>
+                                <label for="sterilized" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.sterilized')}}</label>
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="sterilized" id="yes" value="Tak" <?php echo ($advert->sterilized=='Tak')?'checked':'' ?>>
@@ -111,7 +111,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="weight" class="col-md-4 col-form-label text-md-end">Waga (kg)</label>
+                                <label for="weight" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.weight')}}</label>
                                 <div class="col-md-6">
                                     <input id="weight" type="number" max="100" class="form-control @error('weight') is-invalid @enderror" name="weight" value="{{ $advert->weight }}" required>
 
@@ -124,7 +124,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="height" class="col-md-4 col-form-label text-md-end">Wysokość (cm)</label>
+                                <label for="height" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.height')}}</label>
 
                                 <div class="col-md-6">
                                     <input id="height" type="number" max="200" class="form-control @error('height') is-invalid @enderror" name="height" value="{{ $advert->height }}" required>
@@ -138,7 +138,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="image" class="col-md-4 col-form-label text-md-end">Grafika</label>
+                                <label for="image" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.image')}}</label>
 
                                 <div class="col-md-6">
                                     <input id="image" type="file"  class="form-control @error('image') is-invalid @enderror" name="image">
@@ -160,7 +160,7 @@
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Edytuj
+                                        {{__('advert.button.edit')}}
                                     </button>
                                 </div>
                             </div>
