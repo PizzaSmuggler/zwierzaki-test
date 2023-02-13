@@ -142,16 +142,14 @@
 
                                 <div class="col-md-6">
                                     <select id="species" class="form-control @error('species_id') is-invalid @enderror" name="species_id" required>
-                                        @foreach($species as $species)
-                                            <option value="{{$species->id}}">{{$species->name}}</option>
+                                        <option value="">-- Select Country --</option>
+                                        @foreach ($species as $species)
+                                            <option value="{{$species->id}}">
+                                                {{$species->name}}
+                                            </option>
                                         @endforeach
                                     </select>
                                     <select id="breed" class="form-control @error('breed_id') is-invalid @enderror" name="breed_id" required>
-                                            @foreach($breeds as $breed)
-                                                @if($breed->id == $species->id)
-                                                    <option value="{{$breed->id}}">{{$breed->name}}</option>
-                                                @endif
-                                        @endforeach
                                     </select>
                                     @error('species_id')
                                     <span class="invalid-feedback" role="alert">
@@ -188,4 +186,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('Javascript')
+    @vite(['resources/js/dropdown.js'])
 @endsection

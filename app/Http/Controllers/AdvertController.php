@@ -120,4 +120,5 @@ class AdvertController extends Controller
             ])->setStatusCode(500);
         }
     }
+
 }

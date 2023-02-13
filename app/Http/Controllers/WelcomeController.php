@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advert;
+use App\Models\Breed;
+use App\Models\Species;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -19,7 +21,9 @@ class WelcomeController extends Controller
     public function index(): View
     {
         return view('welcome', [
-            'adverts' => Advert::paginate(10)
+            'adverts' => Advert::paginate(10),
+            'species' => Species::all(),
+            'breeds' => Breed::all()
         ]);
     }
 }
