@@ -19,22 +19,22 @@ class DropdownController extends Controller
      *
      * @return \Illuminate\Contracts\View\View|Factory|Application ()
      */
-    public function view(): \Illuminate\Contracts\View\View|Factory|Application
+    public function index(): Factory|\Illuminate\Contracts\View\View|Application
     {
-        $species = DB::table('species')->get();
-
-        return view('dropdown', compact('species'));
+        $species = Species::all();
+        return view('demo.dependent_dropdown.index',compact('species'));
     }
+
     /**
      * Write code on Method
      *
-     * @return response()
+     * @param $id
+     * @return JsonResponse ()
      */
-    public function getBreeds(Request $request): Response
+    public function getBreeds($id): JsonResponse
     {
-        $breeds = DB::table('breeds')->where('species_id', $request->species_id)->get();
-        if (count($breeds) > 0) {
-            return response()->json($breeds);
-        }
+        $breeds = Breed::where('species_id',$id)->get();
+        return response()->json($breeds);
     }
 }
+

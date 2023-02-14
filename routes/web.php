@@ -29,8 +29,8 @@ Route::delete('/adverts/{advert}',[AdvertController::class, 'destroy'])->name('a
 Route::get( '/users/list', [UserController::class, 'index'])->middleware('auth');
 Route::delete('/users/{user}',[UserController::class, 'destroy'])->middleware('auth');
 
-Route::get('dropdown', [DropdownController::class, 'view'])->name('dropdownView');
-Route::get('/adverts/create/get-breeds', [DropdownController::class, 'getBreeds'])->name('getBreeds');
+Route::get('getBreeds/{id}',[DropdownController::class,'getBreeds']);
+
 
 Auth::routes();
 

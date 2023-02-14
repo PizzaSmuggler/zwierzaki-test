@@ -142,7 +142,7 @@
 
                                 <div class="col-md-6">
                                     <select id="species" class="form-control @error('species_id') is-invalid @enderror" name="species_id" required>
-                                        <option value="">-- Select Country --</option>
+                                        <option value="">-- Wybierz gatunek --</option>
                                         @foreach ($species as $species)
                                             <option value="{{$species->id}}">
                                                 {{$species->name}}
@@ -150,6 +150,7 @@
                                         @endforeach
                                     </select>
                                     <select id="breed" class="form-control @error('breed_id') is-invalid @enderror" name="breed_id" required>
+
                                     </select>
                                     @error('species_id')
                                     <span class="invalid-feedback" role="alert">
