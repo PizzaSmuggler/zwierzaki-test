@@ -11,7 +11,7 @@ class Species extends Model
     protected $fillable = [
         'name',
     ];
-    public function breeds(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function breed(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Breed::class);
     }

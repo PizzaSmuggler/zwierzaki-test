@@ -24,6 +24,8 @@
                     <th scope="col">{{__('advert.advert.fields.sterilized')}}</th>
                     <th scope="col">{{__('advert.advert.fields.weight')}}</th>
                     <th scope="col">{{__('advert.advert.fields.height')}}</th>
+                    <th scope="col">{{__('advert.advert.fields.species')}}</th>
+                    <th scope="col">{{__('advert.advert.fields.breed')}}</th>
                     <th scope="col">{{__('advert.columns.actions')}}</th>
                 </tr>
                 </thead>
@@ -39,6 +41,8 @@
                     <td>{{$advert->sterilized}}</td>
                     <td>{{$advert->weight}}</td>
                     <td>{{$advert->height}}</td>
+                    <td>@if(!is_null($advert->species)){{$advert->species->name}}@endif</td>
+                    <td>@if(!is_null($advert->breed)){{$advert->breed->name}}@endif</td>
                     <td>
                         <a href="{{route('adverts.show',$advert->id)}}">
                             <button class="btn btn-primary btn-sm"> P </button>

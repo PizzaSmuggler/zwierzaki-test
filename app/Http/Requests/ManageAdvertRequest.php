@@ -32,7 +32,9 @@ class ManageAdvertRequest extends FormRequest
             'sterilized' => 'required',
             'weight' => 'required|integer|min:0|max:100',
             'height' => 'required|integer|min:0|max:200',
-            'image' => 'image|mimes:jpg,png'
+            'image' => 'image|mimes:jpg,png',
+            'breed_id' =>  'nullable|integer|min:1',
+            'species_id' =>  'nullable|integer|min:1'
         ];
     }
 }

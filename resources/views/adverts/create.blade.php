@@ -138,7 +138,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="breed" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.species')}}</label>
+                                <label for="species" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.species')}}</label>
 
                                 <div class="col-md-6">
                                     <select id="species" class="form-control @error('species_id') is-invalid @enderror" name="species_id" required>
@@ -149,15 +149,24 @@
                                             </option>
                                         @endforeach
                                     </select>
-                                    <select id="breed" class="form-control @error('breed_id') is-invalid @enderror" name="breed_id" required>
-
-                                    </select>
                                     @error('species_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </div>
+                                <label for="breed" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.breed')}}</label>
+                                <div class="col-md-6">
+                                    <select id="breeds" class="form-control @error('breed_id') is-invalid @enderror" name="breed_id" required>
+                                        <option value="">-- Najpierw wybierz gatunek --</option>
+                                    </select>
+                                    @error('breed_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
                             </div>
 
                             <div class="row mb-3">

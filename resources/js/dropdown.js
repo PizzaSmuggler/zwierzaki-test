@@ -8,19 +8,19 @@ $(function(){
                 data : {"_token":"{{ csrf_token() }}"},
                 dataType: "json",
                 success:function(data) {
-                    //console.log(data);
+                    console.log(data);
                     if(data){
-                        $('#breed').empty();
+                        $('#breeds').empty();
                         $.each(data, function(key, value){
-                            $('select[name="breed_id"]').append('<option value="'+ key +'">'+value.name + '</option>');
+                            $('select[name="breed_id"]').append('<option value="'+ value.id +'">'+value.name + '</option>');
                         });
                     }else{
-                        $('#breed').empty();
+                        $('#breeds').empty();
                     }
                 }
             });
         }else{
-            $('#city').empty();
+            $('#breeds').empty();
         }
     });
     });

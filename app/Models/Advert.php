@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use \Znck\Eloquent\Traits\BelongsToThrough;
 
 class Advert extends Model
 {
@@ -28,5 +29,9 @@ class Advert extends Model
     public function breed(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Breed::class);
+    }
+    public function species(): \Illuminate\Database\Eloquent\Relations\HasOneThrough
+    {
+        return $this->hasOneThrough(Species::class , Breed::class,'id','id','breed_id','species_id');
     }
 }

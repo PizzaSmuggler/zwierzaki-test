@@ -90,6 +90,30 @@
                                 </div>
                             </div>
 
+                            <div class="row mb-3">
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.species')}}</label>
+
+                                <div class="col-md-6">
+                                    <input id="name" type="text" maxlength="500" class="form-control" name="name" value="{{ $advert->name }}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="species" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.species')}}</label>
+
+                                <div class="col-md-6">
+                                    <input id="species" type="text" class="form-control" name="species" value="{{ $advert->species->name }}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="breeds" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.breed')}}</label>
+
+                                <div class="col-md-6">
+                                    <input id="breed" type="text" class="form-control" name="breed" value="{{ $advert->breed->name }}" disabled>
+                                </div>
+                            </div>
+
                         <div class="row mb-3 form-control ">
                             <div class="col-md-6">
                                 <img src="{{asset('storage/' . $advert->image_path)}}" alt="Zdjęcie ogłoszenia" flex>

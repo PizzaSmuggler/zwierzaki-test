@@ -22,6 +22,8 @@ return [
             'sterilized' => 'Sterilized',
             'weight' => 'Weight (kg)',
             'height' => 'Height (cm)',
+            'species' => 'Species',
+            'breed' => 'Breed',
             'image' => 'Image',
         ]
     ]

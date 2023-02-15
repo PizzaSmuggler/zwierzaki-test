@@ -24,7 +24,7 @@ class AdvertController extends Controller
     public function index(): View
     {
         return view('adverts.index', [
-            'adverts' => Advert::paginate(10)
+            'adverts' => Advert::paginate(10),
         ]);
     }
 
@@ -79,7 +79,9 @@ class AdvertController extends Controller
     public function edit(Advert $advert): View
     {
         return view('adverts.edit', [
-            'advert' => $advert
+            'advert' => $advert,
+            'species' => Species::all(),
+            'breeds' => Breed::all()
         ]);
     }
 

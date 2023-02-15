@@ -22,6 +22,8 @@ return [
             'sterilized' => 'Sterylizowany',
             'weight' => 'Waga (kg)',
             'height' => 'Wysokość (cm)',
+            'species' => 'Gatunek',
+            'breed' => 'Rasa',
             'image' => 'Grafika',
         ]
     ]
