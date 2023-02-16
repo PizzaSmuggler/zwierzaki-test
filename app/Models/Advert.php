@@ -24,14 +24,23 @@ class Advert extends Model
         'sterilized',
         'weight',
         'height',
-        'breed_id'
+        'breed_id',
+        'city_id'
     ];
     public function breed(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Breed::class);
     }
+    public function city(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
     public function species(): \Illuminate\Database\Eloquent\Relations\HasOneThrough
     {
         return $this->hasOneThrough(Species::class , Breed::class,'id','id','breed_id','species_id');
+    }
+    public function voievodeship(): \Illuminate\Database\Eloquent\Relations\HasOneThrough
+    {
+        return $this->hasOneThrough(Voievodeship::class , City::class,'id','id','city_id','voievodeship_id');
     }
 }
