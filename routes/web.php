@@ -30,6 +30,7 @@ Route::get( '/users/list', [UserController::class, 'index'])->middleware('auth')
 Route::delete('/users/{user}',[UserController::class, 'destroy'])->middleware('auth');
 
 Route::get('getBreeds/{id}',[DropdownController::class,'getBreeds']);
+Route::get('getCities/{id}',[DropdownController::class,'getCities']);
 
 
 Auth::routes();

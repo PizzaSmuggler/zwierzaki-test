@@ -26,6 +26,8 @@
                     <th scope="col">{{__('advert.advert.fields.height')}}</th>
                     <th scope="col">{{__('advert.advert.fields.species')}}</th>
                     <th scope="col">{{__('advert.advert.fields.breed')}}</th>
+                    <th scope="col">{{__('advert.advert.fields.voievodeship')}}</th>
+                    <th scope="col">{{__('advert.advert.fields.city')}}</th>
                     <th scope="col">{{__('advert.columns.actions')}}</th>
                 </tr>
                 </thead>
@@ -43,6 +45,8 @@
                     <td>{{$advert->height}}</td>
                     <td>@if(!is_null($advert->species)){{$advert->species->name}}@endif</td>
                     <td>@if(!is_null($advert->breed)){{$advert->breed->name}}@endif</td>
+                    <td>@if(!is_null($advert->voievodeship)){{$advert->voievodeship->name}}@endif</td>
+                    <td>@if(!is_null($advert->city)){{$advert->city->name}}@endif</td>
                     <td>
                         <a href="{{route('adverts.show',$advert->id)}}">
                             <button class="btn btn-primary btn-sm"> P </button>

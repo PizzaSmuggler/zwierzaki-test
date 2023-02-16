@@ -168,6 +168,37 @@
                                 </div>
                             </div>
 
+                            <div class="row mb-3">
+                                <label for="voievodeship" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.voievodeship')}}</label>
+
+                                <div class="col-md-6">
+                                    <select id="voievodeship" class="form-control @error('voievodeship_id') is-invalid @enderror" name="voievodeship_id" required>
+                                        <option value="">-- Wybierz województwo --</option>
+                                        @foreach ($voievodeships as $voievodeship)
+                                            <option value="{{$voievodeship->id}}">
+                                                {{$voievodeship->name}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('voievodeship_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <label for="city" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.city')}}</label>
+                                <div class="col-md-6">
+                                    <select id="cities" class="form-control @error('city_id') is-invalid @enderror" name="city_id" required>
+                                        <option value="">-- Najpierw wybierz województwo --</option>
+                                    </select>
+                                    @error('city_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
 
                             <div class="row mb-3">
                                 <label for="image" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.image')}}</label>
@@ -204,5 +235,5 @@
     </div>
 @endsection
 @section('Javascript')
-    @vite(['resources/js/dropdown.js'])
+    @vite(['resources/js/dropdown.js','resources/js/dropdowncity.js'])
 @endsection

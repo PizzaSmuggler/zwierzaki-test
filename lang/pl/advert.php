@@ -24,6 +24,8 @@ return [
             'height' => 'Wysokość (cm)',
             'species' => 'Gatunek',
             'breed' => 'Rasa',
+            'voievodeship' => 'Województwo',
+            'city' => 'Miasto',
             'image' => 'Grafika',
         ]
     ]

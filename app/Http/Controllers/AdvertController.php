@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ManageAdvertRequest;
-use App\Http\Requests\StoreAdvertRequest;
 use App\Models\Advert;
 use App\Models\Breed;
 use App\Models\Species;
+use App\Models\Voievodeship;
+use App\Models\City;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -37,7 +38,9 @@ class AdvertController extends Controller
     {
         return view("adverts.create",[
             'species' => Species::all(),
-            'breeds' => Breed::all()
+            'breeds' => Breed::all(),
+            'voievodeships' => Voievodeship::all(),
+            'cities' => City::all()
         ]);
     }
 
@@ -81,7 +84,9 @@ class AdvertController extends Controller
         return view('adverts.edit', [
             'advert' => $advert,
             'species' => Species::all(),
-            'breeds' => Breed::all()
+            'breeds' => Breed::all(),
+            'voievodeships' => Voievodeship::all(),
+            'cities' => City::all()
         ]);
     }
 

@@ -1,26 +1,26 @@
 $(function(){
-    $('#species').on('change', function() {
-        const speciesID = $(this).val();
-        if(speciesID) {
+    $('#voievodeship').on('change', function() {
+        const voievodeshipID = $(this).val();
+        if(voievodeshipID) {
             $.ajax({
-                url: '/getBreeds/'+speciesID,
+                url: '/getCities/'+voievodeshipID,
                 type: "GET",
                 data : {"_token":"{{ csrf_token() }}"},
                 dataType: "json",
                 success:function(data) {
                     console.log(data);
                     if(data){
-                        $('#breeds').empty();
+                        $('#cities').empty();
                         $.each(data, function(key, value){
-                            $('select[name="breed_id"]').append('<option value="'+ value.id +'">'+value.name + '</option>');
+                            $('select[name="city_id"]').append('<option value="'+ value.id +'">'+value.name + '</option>');
                         });
                     }else{
-                        $('#breeds').empty();
+                        $('#cities').empty();
                     }
                 }
             });
         }else{
-            $('#breeds').empty();
+            $('#cities').empty();
         }
     });
 });

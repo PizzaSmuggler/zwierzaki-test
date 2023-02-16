@@ -34,7 +34,9 @@ class ManageAdvertRequest extends FormRequest
             'height' => 'required|integer|min:0|max:200',
             'image' => 'image|mimes:jpg,png',
             'breed_id' =>  'nullable|integer|min:1',
-            'species_id' =>  'nullable|integer|min:1'
+            'species_id' =>  'nullable|integer|min:1',
+            'city_id' =>  'nullable|integer|min:1',
+            'voievodeship_id' =>  'nullable|integer|min:1'
         ];
     }
 }

@@ -114,6 +114,22 @@
                                 </div>
                             </div>
 
+                            <div class="row mb-3">
+                                <label for="voievodeships" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.voievodeship')}}</label>
+
+                                <div class="col-md-6">
+                                    <input id="voievodeship" type="text" class="form-control" name="voievodeship" value="{{ $advert->voievodeship->name }}" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="cities" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.city')}}</label>
+
+                                <div class="col-md-6">
+                                    <input id="city" type="text" class="form-control" name="city" value="{{ $advert->city->name }}" disabled>
+                                </div>
+                            </div>
+
                         <div class="row mb-3 form-control ">
                             <div class="col-md-6">
                                 <img src="{{asset('storage/' . $advert->image_path)}}" alt="Zdjęcie ogłoszenia" flex>
