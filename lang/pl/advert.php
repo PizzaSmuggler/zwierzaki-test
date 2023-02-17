@@ -17,7 +17,7 @@ return [
             'name' => 'Nazwa',
             'description' => 'Opis',
             'gender' => 'Płeć',
-            'age' => 'Wiek',
+            'age' => 'Wiek (lata)',
             'vaccinated' => 'Szczepiony',
             'sterilized' => 'Sterylizowany',
             'weight' => 'Waga (kg)',

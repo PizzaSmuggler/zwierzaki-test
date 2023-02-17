@@ -15,7 +15,7 @@
                                     <input id="name" type="text" maxlength="500" class="form-control" name="name" value="{{ $advert->name }}" disabled>
                                 </div>
                             </div>
-
+                            <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="description" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.description')}}</label>
 
@@ -23,7 +23,7 @@
                                     <textarea id="description" maxlength="1500" class="form-control" name="description" disabled>{{$advert->description}}</textarea>
                                 </div>
                             </div>
-
+                            <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="gender" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.gender')}}</label>
 
@@ -38,15 +38,15 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <hr class="hr blurry" />
                             <div class="row mb-3">
-                                <label for="age" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.wiek')}}</label>
+                                <label for="age" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.age')}}</label>
 
                                 <div class="col-md-6">
                                     <input id="age" type="number" max="99" class="form-control" name="age" value="{{ $advert->age }}" disabled>
                                 </div>
                             </div>
-
+                        <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="vaccinated" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.vaccinated')}}</label>
                                 <div class="col-md-6">
@@ -74,7 +74,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                        <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="weight" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.weight')}}</label>
                                 <div class="col-md-6">
@@ -89,15 +89,7 @@
                                     <input id="height" type="number" max="200" class="form-control" name="height" value="{{ $advert->height }}" disabled>
                                 </div>
                             </div>
-
-                            <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.species')}}</label>
-
-                                <div class="col-md-6">
-                                    <input id="name" type="text" maxlength="500" class="form-control" name="name" value="{{ $advert->name }}" disabled>
-                                </div>
-                            </div>
-
+                        <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="species" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.species')}}</label>
 
@@ -113,7 +105,7 @@
                                     <input id="breed" type="text" class="form-control" name="breed" value="{{ $advert->breed->name }}" disabled>
                                 </div>
                             </div>
-
+                        <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="voievodeships" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.voievodeship')}}</label>
 
@@ -129,7 +121,7 @@
                                     <input id="city" type="text" class="form-control" name="city" value="{{ $advert->city->name }}" disabled>
                                 </div>
                             </div>
-
+                        <hr class="hr blurry" />
                         <div class="row mb-3 form-control ">
                             <div class="col-md-6">
                                 <img src="{{asset('storage/' . $advert->image_path)}}" alt="Zdjęcie ogłoszenia" flex>

@@ -8,7 +8,6 @@ $(function(){
                 data : {"_token":"{{ csrf_token() }}"},
                 dataType: "json",
                 success:function(data) {
-                    console.log(data);
                     if(data){
                         $('#breeds').empty();
                         $.each(data, function(key, value){

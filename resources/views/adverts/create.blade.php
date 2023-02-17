@@ -23,7 +23,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="description" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.description')}}</label>
 
@@ -37,7 +37,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="gender" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.gender')}}</label>
 
@@ -57,7 +57,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="age" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.age')}}</label>
 
@@ -71,7 +71,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="vaccinated" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.vaccinated')}}</label>
                                 <div class="col-md-6">
@@ -109,7 +109,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="weight" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.weight')}}</label>
                                 <div class="col-md-6">
@@ -136,7 +136,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="species" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.species')}}</label>
 
@@ -167,7 +167,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="voievodeship" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.voievodeship')}}</label>
 
@@ -198,7 +198,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <hr class="hr blurry" />
                             <div class="row mb-3">
                                 <label for="image" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.image')}}</label>
 
