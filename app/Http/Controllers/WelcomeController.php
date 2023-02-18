@@ -24,7 +24,7 @@ class WelcomeController extends Controller
     public function index(Request $request): View|JsonResponse
     {
         $filters = $request->query('filter');
-        $paginate = $request->query('paginate') ?? 5;
+        $paginate = $request->query('paginate') ?? 1000;
         $query = Advert::query();
         $query->paginate($paginate);
 
@@ -37,6 +37,19 @@ class WelcomeController extends Controller
             }
             if(!is_null($filters['age_max'])) {
                 $query = $query->where('age', '<=', $filters['age_max']);
+            }
+            if(!is_null($filters['species'])) {
+                $query = $query->whereHas('species.breed',function ($quera) use ($filters){
+                    $quera->where('species_id',$filters['species']);
+                });
+            }
+            if(!is_null($filters['species'])) {
+                $query = $query->whereHas('breed',function ($quera) use ($filters){
+                    $quera->where('breed_id',$filters['breed_id']);
+                });
+            }
+            if(!is_null($filters['gender'])) {
+                $query = $query->where('gender', '=', $filters['gender']);
             }
             return response()->json([
                 'data' => $query->get()
