@@ -62,7 +62,7 @@
                                 <label for="age" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.age')}}</label>
 
                                 <div class="col-md-6">
-                                    <input id="age" type="number" max="99" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="name" autofocus>
+                                    <input id="age" type="number" max="30" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autofocus>
 
                                     @error('age')
                                     <span class="invalid-feedback" role="alert">
@@ -113,8 +113,7 @@
                             <div class="row mb-3">
                                 <label for="weight" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.weight')}}</label>
                                 <div class="col-md-6">
-                                    <input id="weight" type="number" max="100" class="form-control @error('weight') is-invalid @enderror" name="weight" value="{{ old('weight') }}" required autofocus>
-
+                                    <input id="weight" type="number" max="500" class="form-control @error('weight') is-invalid @enderror" name="weight" value="{{ old('weight') }}" required autofocus>
                                     @error('weight')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

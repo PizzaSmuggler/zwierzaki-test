@@ -32,12 +32,12 @@ return [
     'date' => ':attribute nie jest prawidłową datą.',
     'date_format' => ':attribute nie jest datą w formacie: :format.',
     'different' => ':attribute i :other muszą się od siebie różnić.',
-    'digits' => ':attribute musi być :digits numerem.',
+    'digits' => ':attribute musi mieć :digits liczb.',
     'digits_between' => ':attribute musi być pomiędzy numerami :min i :max.',
     'email' => ':attribute nie jest adresem email.',
     'filled' => 'Pole :attribute jest wymagane.',
     'exists' => ':attribute nie istnieje.',
-    'image' => ':attribute musi być obrazkiem.',
+    'image' => ':attribute musi być w formacie .jpg lub .png.',
     'in' => 'Zaznaczona opcja :attribute jest nieprawidłowa.',
     'integer' => ':attribute musi być liczbą całkowitą.',
     'ip' => ':attribute musi być prawidłowym adresem IP.',
@@ -104,13 +104,16 @@ return [
     */
 
     'attributes' =>[
-        'name' => 'nazwa',
-        'description' => 'opis',
-        'gender' => 'płeć',
-        'age' => 'wiek',
-        'vaccinated' => 'szczepienie',
-        'sterilized' => 'sterylizacja',
-        'height' => 'wzrost',
-        'weight' => 'waga'
+        'name' => 'Nazwa',
+        'description' => 'Opis',
+        'gender' => 'PŁeć',
+        'age' => 'Wiek',
+        'vaccinated' => 'Szczepienie',
+        'sterilized' => 'Sterylizacja',
+        'height' => 'Wzrost',
+        'weight' => 'Waga',
+        'password' => 'Hasło',
+        'phone' => 'Numer telefonu',
+        'image' => 'Zdjęcie'
     ],
 ];

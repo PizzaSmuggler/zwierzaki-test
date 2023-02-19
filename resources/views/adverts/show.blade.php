@@ -43,7 +43,7 @@
                                 <label for="age" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.age')}}</label>
 
                                 <div class="col-md-6">
-                                    <input id="age" type="number" max="99" class="form-control" name="age" value="{{ $advert->age }}" disabled>
+                                    <input id="age" type="number" max="30" class="form-control" name="age" value="{{ $advert->age }}" disabled>
                                 </div>
                             </div>
                         <hr class="hr blurry" />
@@ -78,7 +78,7 @@
                             <div class="row mb-3">
                                 <label for="weight" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.weight')}}</label>
                                 <div class="col-md-6">
-                                    <input id="weight" type="number" max="100" class="form-control" name="weight" value="{{ $advert->weight }}" disabled>
+                                    <input id="weight" type="number" max="500" class="form-control" name="weight" value="{{ $advert->weight }}" disabled>
                                 </div>
                             </div>
 
