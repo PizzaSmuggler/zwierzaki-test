@@ -55,7 +55,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @if(Auth::check() && Auth::user()->role =='admin')
                                     <a class="dropdown-item" href="/users/list">Użytkownicy</a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('adverts.index')}}">Ogłoszenia</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

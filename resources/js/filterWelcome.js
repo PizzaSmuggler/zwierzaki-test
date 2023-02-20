@@ -20,6 +20,7 @@ $(function(){
                 .done(function (response) {
                     $('div#adverts-wrapper').empty();
                     $.each(response.data, function(index, advert){
+                        console.log(advert)
                         const html = '<div class="col-6 col-md-6 col-lg-4 mb-3">' +
                             '                                    <div class="card h-100 border-0">' +
                             '                                        <div class="card-img-top">' +
@@ -30,7 +31,7 @@ $(function(){
                                                                                 advert.name +
                             '                                            </h4>' +
                             '                                            <h5 class="card-price small">' +
-                            '                                                <i>' + advert.city + '</i>' +
+                            '                                                <i>' + advert.id + '</i>' +
                             '                                            </h5>' +
                             '                                        </div>' +
                             '                                    </div>' +

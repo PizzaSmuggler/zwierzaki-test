@@ -26,7 +26,6 @@ class WelcomeController extends Controller
         $filters = $request->query('filter');
         $paginate = $request->query('paginate') ?? 1000;
         $query = Advert::query();
-        $query->paginate($paginate);
 
         if(!is_null($filters)){
             if(!is_null($filters['name'])) {
@@ -43,20 +42,28 @@ class WelcomeController extends Controller
                     $quera->where('species_id',$filters['species']);
                 });
             }
-            if(!is_null($filters['species'])) {
+            if(!is_null($filters['breed_id'])) {
                 $query = $query->whereHas('breed',function ($quera) use ($filters){
                     $quera->where('breed_id',$filters['breed_id']);
+                });
+            }
+            if(!is_null($filters['voievodeship'])) {
+                $query = $query->whereHas('voievodeship.city',function ($quera) use ($filters){
+                    $quera->where('voievodeship_id',$filters['voievodeship']);
+                });
+            }
+            if(!is_null($filters['city_id'])) {
+                $query = $query->whereHas('breed',function ($quera) use ($filters){
+                    $quera->where('city_id',$filters['city_id']);
                 });
             }
             if(!is_null($filters['gender'])) {
                 $query = $query->where('gender', '=', $filters['gender']);
             }
-            return response()->json([
-                'data' => $query->get()
-            ]);
+            return response()->json($query->paginate($paginate));
         }
         return view('welcome', [
-            'adverts' => $query->get(),
+            'adverts' => $query->paginate($paginate),
             'species' => Species::all(),
             'breeds' => Breed::all(),
             'cities' => City::all(),

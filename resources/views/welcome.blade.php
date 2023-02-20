@@ -82,7 +82,7 @@
                     </div>
                     <hr class="hr blurry" />
                     <div>
-                    <h6 class="text-uppercase font-weight-bold mb-3 text-center">--Typ zwierzaka--</h6>
+                    <h6 class="text-uppercase font-weight-bold mb-3 text-center">Typ zwierzaka</h6>
                     <div class="mt-2 mb-2 pl-2">
                         <select class="form-control" id="species" name="filter[species]">
                             <option value="">Wszystkie zwierzęta</option>
@@ -100,6 +100,27 @@
                             <option value="">Wybierz rasę zwierzaka</option>
                         </select>
                     </div>
+                    </div>
+                    <hr class="hr blurry" />
+                    <div>
+                        <h6 class="text-uppercase font-weight-bold mb-3 text-center">Województwo</h6>
+                        <div class="mt-2 mb-2 pl-2">
+                            <select class="form-control" id="voievodeships" name="filter[voievodeship]">
+                                <option value="">Wszystkie województwa</option>
+                                @foreach ($voievodeships as $voievodeship)
+                                    <option value="{{$voievodeship->id}}">
+                                        {{$voievodeship->name}}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <hr class="hr blurry" />
+                        <h6 class="text-uppercase font-weight-bold mb-3 text-center">Miasto</h6>
+                        <div class="mt-2 mb-2 pl-2">
+                            <select class="form-control" id="cities" name="filter[city_id]">
+                                <option value="">Wybierz województwo</option>
+                            </select>
+                        </div>
                     </div>
                     <hr class="hr blurry" />
                     <h6 class="text-uppercase font-weight-bold mb-3 text-center">Płeć</h6>
@@ -120,7 +141,7 @@
                     <h6 class="text-uppercase font-weight-bold mb-3 text-center">Waga</h6>
                     <div class="price-filter-control inline-flex">
                         <input type="number" class="form-control w-50 pull-left mb-2" placeholder="0" id="weight-min-control" name="filter[weight_min]">
-                        <input type="number" class="form-control w-50 pull-right" placeholder="100" id="weight-max-control" name="filter[weight_max]">
+                        <input type="number" class="form-control w-50 pull-right" placeholder="500" id="weight-max-control" name="filter[weight_max]">
                     </div>
                     <hr class="hr blurry" />
                     <h6 class="text-uppercase font-weight-bold mb-3 text-center">Wzrost</h6>
@@ -136,6 +157,6 @@
         </div>
 @endsection
 @section('Javascript')
-    @vite(['resources/js/dropdownWelcome.js','resources/js/dropdowncity.js','resources/js/filterWelcome.js'])
+    @vite(['resources/js/dropdownWelcome.js','resources/js/filterWelcome.js'])
 @endsection
 
