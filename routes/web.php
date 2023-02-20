@@ -21,6 +21,8 @@ Route::get( '/', [WelcomeController::class, 'index'])->name('search');
 
 Route::middleware(['auth','verified'])->group(function(){
     Route::resource('adverts',AdvertController::class);
+    //Route::get('/getBreeds/{id}',[DropdownController::class,'getBreeds']);
+    //Route::get('/getCities/{id}',[DropdownController::class,'getCities']);
     Route::get( '/users/list', [UserController::class, 'index'])->middleware('isAdmin');
     Route::delete('/users/{user}',[UserController::class, 'destroy'])->middleware('isAdmin');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -36,8 +38,8 @@ Route::middleware(['auth','verified'])->group(function(){
 //Route::get( '/users/list', [UserController::class, 'index'])->middleware('auth');
 //Route::delete('/users/{user}',[UserController::class, 'destroy'])->middleware('auth');
 
-//Route::get('/getBreeds/{id}',[DropdownController::class,'getBreeds']);
-//Route::get('/getCities/{id}',[DropdownController::class,'getCities']);
+Route::get('/getBreeds/{id}',[DropdownController::class,'getBreeds']);
+Route::get('/getCities/{id}',[DropdownController::class,'getCities']);
 
 
 Auth::routes(['verify'=>true]) ;

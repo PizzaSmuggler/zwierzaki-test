@@ -33,6 +33,7 @@
                 </thead>
                 <tbody>
                 @foreach($adverts as $advert)
+                    @if($advert->user_id == Auth::id())
                 <tr>
                     <th scope="row">{{$advert->id}}</th>
                     <td>{{$advert->name}}</td>
@@ -57,6 +58,32 @@
                         <button class="btn btn-danger btn-sm delete" data-id="{{$advert->id}}"> X </button>
                     </td>
                 </tr>
+                        @elseif(Auth::user()->role =='admin')
+                        <tr>
+                            <th scope="row">{{$advert->id}}</th>
+                            <td>{{$advert->name}}</td>
+                            <td>{{$advert->description}}</td>
+                            <td>{{$advert->gender}}</td>
+                            <td>{{$advert->age}}</td>
+                            <td>{{$advert->vaccinated}}</td>
+                            <td>{{$advert->sterilized}}</td>
+                            <td>{{$advert->weight}}</td>
+                            <td>{{$advert->height}}</td>
+                            <td>@if(!is_null($advert->species)){{$advert->species->name}}@endif</td>
+                            <td>@if(!is_null($advert->breed)){{$advert->breed->name}}@endif</td>
+                            <td>@if(!is_null($advert->voievodeship)){{$advert->voievodeship->name}}@endif</td>
+                            <td>@if(!is_null($advert->city)){{$advert->city->name}}@endif</td>
+                            <td>
+                                <a href="{{route('adverts.show',$advert->id)}}">
+                                    <button class="btn btn-primary btn-sm"> P </button>
+                                </a>
+                                <a href="{{route('adverts.edit',$advert->id)}}">
+                                    <button class="btn btn-success btn-sm"> E </button>
+                                </a>
+                                <button class="btn btn-danger btn-sm delete" data-id="{{$advert->id}}"> X </button>
+                            </td>
+                        </tr>
+                @endif
                 @endforeach
                 </tbody>
             </table>

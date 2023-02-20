@@ -27,6 +27,7 @@ return [
             'voievodeship' => 'Województwo',
             'city' => 'Miasto',
             'image' => 'Grafika',
+            'phone' => 'Numer telefonu (+48)'
         ]
     ]
 ];

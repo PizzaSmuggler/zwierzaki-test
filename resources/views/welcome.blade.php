@@ -41,7 +41,7 @@
                                         </div>
                                         <div class="card-body text-center">
                                             <h4 class="card-title">
-                                                <a href="advert.html" class=" font-weight-bold text-dark text-uppercase small"> {{$advert->name}}</a>
+                                                <a href="{{route('adverts.show',$advert->id)}}" class=" font-weight-bold text-dark text-uppercase small"> {{$advert->name}}</a>
                                             </h4>
                                             <h5 class="card-price small">
                                                 <i>

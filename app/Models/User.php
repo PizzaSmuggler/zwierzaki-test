@@ -44,4 +44,8 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function adverts(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Advert::class);
+    }
 }

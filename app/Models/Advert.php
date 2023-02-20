@@ -24,7 +24,8 @@ class Advert extends Model
         'weight',
         'height',
         'breed_id',
-        'city_id'
+        'city_id',
+        'user_id'
     ];
     public function breed(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
@@ -33,6 +34,10 @@ class Advert extends Model
     public function city(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(City::class);
+    }
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
     public function species(): \Illuminate\Database\Eloquent\Relations\HasOneThrough
     {

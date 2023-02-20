@@ -95,7 +95,7 @@
                                 <label for="sterilized" class="col-md-4 col-form-label text-md-end">{{__('advert.advert.fields.sterilized')}}</label>
                                 <div class="col-md-6">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="sterilized" id="yes" value="Tak" checked>
+                                        <input class="form-check-input" type="radio" name="sterilized" id="yes" value="Yes" checked>
                                         <label class="form-check-label" for="yes">Tak</label>
                                     </div>
                                     <div class="form-check form-check-inline">
@@ -211,7 +211,7 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{Auth::id()}}">
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">

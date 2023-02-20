@@ -33,6 +33,7 @@ class ManageAdvertRequest extends FormRequest
             'weight' => 'required|integer|min:0|max:500',
             'height' => 'required|integer|min:0|max:200',
             'image' => 'image|mimes:jpg,png',
+            'user_id' =>  'nullable|integer|min:1',
             'breed_id' =>  'nullable|integer|min:1',
             'species_id' =>  'nullable|integer|min:1',
             'city_id' =>  'nullable|integer|min:1',
