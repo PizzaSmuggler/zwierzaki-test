@@ -25,7 +25,7 @@ class ManageAdvertRequest extends FormRequest
     {
         return [
             'name' => 'required|max:500',
-            'description' => 'required|max:1500',
+            'description' => 'required|max:10000',
             'gender' => 'required',
             'age' => 'required|integer|min:0|max:30',
             'vaccinated' => 'required',

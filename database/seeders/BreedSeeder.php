@@ -16,10 +16,12 @@ class BreedSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['name' => 'Siberian Husky',
-            'species_id' => '1'],
-            ['name' => 'Rosyjski Niebieski',
-                'species_id' => '2']
+            ['name' => 'Koń gorącokrwisty',
+                'species_id' => '3'],
+            ['name' => 'Koń zimnokrwisty',
+                'species_id' => '3'],
+            ['name' => 'Kuc',
+                'species_id' => '3'],
         ];
         Breed::insert($data);
     }
