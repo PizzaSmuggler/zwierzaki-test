@@ -28,10 +28,10 @@ $(function(){
                             '                                        </div>' +
                             '                                        <div class="card-body text-center">' +
                             '                                            <h4 class="card-title">' +
-                                                                                advert.name +
+                            '                                               <a href="'+ '/adverts/' + advert.id +'" class="font-weight-bold text-dark text-uppercase small">' + advert.name + '</a>'+
                             '                                            </h4>' +
                             '                                            <h5 class="card-price small">' +
-                            '                                                <i>' + advert.id + '</i>' +
+                            '                                                <i>' + advert.name + '</i>' +
                             '                                            </h5>' +
                             '                                        </div>' +
                             '                                    </div>' +
